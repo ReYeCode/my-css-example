@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool CSS Features Showcase</title>
-    <link rel="stylesheet" href="css1/style.css">
+    <title>Cool CSS Stuff</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="scroll-progress"></div>
+
     <div class="container">
         <div class="card gradient-border">
-            <h2>01 / Dynamic Borders</h2>
-            <p>This card uses modern CSS <code>@property</code> to animate a gradient border seamlessly without complex JavaScript hacks.</p>
+            <h2>01 / Moving Borders</h2>
+            <p>Instead of relying on heavy JavaScript or hacky image tricks, this border uses <code>@property</code> to handle a smooth, rotating gradient natively.</p>
         </div>
 
         <div class="card glassmorphism">
-            <h2>02 / Glassmorphism</h2>
-            <p>By leveraging <code>backdrop-filter: blur()</code>, this card mimics realistic frosted glass, blending beautifully with the background.</p>
+            <h2>02 / Frosted Glass</h2>
+            <p>Using <code>backdrop-filter</code>, this card blurs whatever is behind it. It gives you that clean iOS look with just a couple lines of code.</p>
+        </div>
+
+        <div class="card scroll-reveal">
+            <h2>03 / Scroll Reveal</h2>
+            <p>Look at the top of your screen. That progress bar tracks your scroll position entirely through CSS. No scroll listeners needed.</p>
         </div>
     </div>
 
