@@ -1,4 +1,3 @@
-/* Custom property registration for smooth gradient animation */
 @property --angle {
     syntax: '<angle>';
     initial-value: 0deg;
@@ -6,8 +5,8 @@
 }
 
 :root {
-    --bg-color: #0a0a0c;
-    --card-bg: rgba(255, 255, 255, 0.03);
+    --bg-color: #0d0d11;
+    --card-bg: rgba(255, 255, 255, 0.02);
     --text-color: #f3f4f6;
 }
 
@@ -18,66 +17,85 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: system-ui, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    min-height: 100vh;
+    min-height: 150vh; /* Extra height so you can actually scroll and see the new feature */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    padding-top: 10vh;
     position: relative;
 }
 
-/* Creating an abstract background for the glassmorphism effect to shine */
+/* Abstract background blobs */
 body::before, body::after {
     content: '';
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(90px);
     z-index: -1;
 }
 
 body::before {
     background: #ff007f;
-    top: 20%;
-    left: 25%;
+    top: 15%;
+    left: 20%;
 }
 
 body::after {
     background: #00f0ff;
-    bottom: 20%;
-    right: 25%;
+    top: 40%;
+    right: 20%;
+}
+
+/* NEW FEATURE: Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #ff007f, #00f0ff);
+    transform-origin: 0 50%;
+    /* This connects the animation scale to the page scroll */
+    animation: grow-progress auto linear;
+    animation-timeline: scroll();
+    z-index: 10;
+}
+
+@keyframes grow-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
 }
 
 .container {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1100px;
 }
 
-/* Base Card Styling */
+/* Base Card Style */
 .card {
     background: var(--card-bg);
     padding: 2.5rem;
-    width: 320px;
-    height: 400px;
-    border-radius: 16px;
+    width: 300px;
+    height: 380px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    position: relative;
 }
 
 .card h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: -0.05em;
 }
 
 .card p {
@@ -87,14 +105,14 @@ body::after {
 }
 
 code {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.2rem 0.4rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.1rem 0.3rem;
     border-radius: 4px;
     font-family: monospace;
-    color: #ff007f;
+    color: #00f0ff;
 }
 
-/* Feature 1: Animated Gradient Border */
+/* Feature 1: Moving Border */
 .gradient-border {
     border: 2px solid transparent;
     background-image: linear-gradient(var(--bg-color), var(--bg-color)), 
@@ -105,17 +123,25 @@ code {
 }
 
 @keyframes rotate-gradient {
-    to {
-        --angle: 360deg;
-    }
+    to { --angle: 360deg; }
 }
 
-/* Feature 2: Glassmorphism */
+/* Feature 2: Frosted Glass */
 .glassmorphism {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* The magic ingredient: */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px); 
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Feature 3: Subtle Hover Effect for the third card */
+.scroll-reveal {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.scroll-reveal:hover {
+    transform: translateY(-5px);
+    border-color: #ff007f;
 }
