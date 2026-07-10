@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 3: Responsive Components</title>
+    <link rel="stylesheet" href="css3/style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <a href="index.html" class="back-link">← Back Home</a>
+        
+        <h2>Container Queries</h2>
+        <p class="desc">Drag your browser window or look at the two cards below. They use the exact same class, but they change their internal layout completely depending on how wide their specific container is—not the whole screen width.</p>
+
+        <div class="card-zone wide-zone">
+            <div class="adaptive-card">
+                <div class="badge">New Spec</div>
+                <div class="card-body">
+                    <h3>Smart Component</h3>
+                    <p>When this card has plenty of horizontal room, it shifts to a sleek side-by-side layout automatically.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-zone narrow-zone">
+            <div class="adaptive-card">
+                <div class="badge">New Spec</div>
+                <div class="card-body">
+                    <h3>Smart Component</h3>
+                    <p>When crammed into a tight spot, the exact same card stacks vertically to fit comfortably.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

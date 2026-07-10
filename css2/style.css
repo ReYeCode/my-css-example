@@ -1,0 +1,122 @@
+:root {
+    --bg-dark: #09090b;
+    --card-dark: #14141b;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --text-main: #f4f4f5;
+    --text-muted: #71717a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* The Bento Grid Setup */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    height: 350px;
+}
+
+/* Base Card Style */
+.panel {
+    background-color: var(--card-dark);
+    border: 1px solid #27272a;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s, 
+                opacity 0.4s;
+    cursor: pointer;
+}
+
+.panel-content span {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.panel-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.panel-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Hover Effects */
+.panel:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-purple);
+}
+
+/* NEW FEATURE: Parent Selection with :has() 
+   If the container HAS a hovered panel, dim the panels that are NOT currently hovered. */
+.grid-container:has(.panel:hover) .panel:not(:hover) {
+    opacity: 0.4;
+    transform: scale(0.98);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .panel {
+        height: 200px;
+    }
+}

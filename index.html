@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css test example LOL</title>
+    <title>CSS Feature Playground</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <div class="scroll-progress"></div>
+
+    <div class="main-layout">
+        <header>
+            <h1>My CSS Laboratory</h1>
+            <p>A collection of modern, pure CSS layout experiments and visual tricks.</p>
+            
+            <nav class="site-nav">
+                <a href="css1.html" class="nav-btn">Exp 1: Effects & Scroll</a>
+                <a href="css2.html" class="nav-btn">Exp 2: Bento & :has()</a>
+                <a href="css3.html" class="nav-btn">Exp 3: Container Queries</a>
+            </nav>
+        </header>
+
+        <main class="container">
+            <div class="card gradient-border">
+                <h2>01 / Moving Borders</h2>
+                <p>Instead of relying on heavy JavaScript or hacky image tricks, this border uses <code>@property</code> to handle a smooth, rotating gradient natively.</p>
+            </div>
+
+            <div class="card glassmorphism">
+                <h2>02 / Frosted Glass</h2>
+                <p>Using <code>backdrop-filter</code>, this card blurs whatever is behind it. It gives you that clean iOS look with just a couple lines of code.</p>
+            </div>
+
+            <div class="card scroll-reveal">
+                <h2>03 / Scroll Reveal</h2>
+                <p>Look at the top of your screen. That progress bar tracks your scroll position entirely through CSS. No scroll listeners needed.</p>
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>
